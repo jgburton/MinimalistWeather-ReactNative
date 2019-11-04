@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, View, Animated } from 'react-native';
 
 import { API_KEY } from './utils/WeatherAPIKey';
-
 import Weather from './components/Weather';
 
 export default class App extends React.Component {
@@ -50,7 +49,8 @@ export default class App extends React.Component {
       </View>
     );
   }
-}
+};
+
 
 const styles = StyleSheet.create({
   container: {
