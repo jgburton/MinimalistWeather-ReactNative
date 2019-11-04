@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import  Weather  from './components/Weather';
+
 export default function App() {
+  const [isLoading,setIsLoading] = useState(false);
+
   return (
     <View style={styles.container}>
-      <Text>Minamilist Weather App</Text>
-    </View>
+    {isLoading ? (
+      <Text>Fetching The Weather...</Text>
+    ) : (
+        <Weather />
+    )}
+  </View>
   );
 }
 
