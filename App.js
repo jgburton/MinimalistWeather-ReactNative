@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { API_KEY } from './utils/WeatherAPIKey';
-// import Weather from './components/Weather';
+import Weather from './components/Weather';
 
 const App = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +27,10 @@ const App = () => {
         )
             .then(res => res.json())
             .then(json => {
-                console.log(json);
+                // console.log(json);
+                setTemperature(Math.floor(json.main.temp));
+                setWeatherCondition(json.weather[0].main);
+                setIsLoading(false);
             });
     };
 
@@ -39,9 +42,7 @@ const App = () => {
                     <Text style={styles.loadingText}>Fetching the Weather...</Text>
                 </View>
             ) : (
-                    <View style={styles.loadingContainer}>
-                        <Text style={styles.loadingText}>All good...</Text>
-                    </View>
+                    <Weather weather={weatherCondition} temperature={temperature}/>
                 )}
         </View>
     );
