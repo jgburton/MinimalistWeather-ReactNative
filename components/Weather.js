@@ -7,19 +7,19 @@ import { weatherConditions } from '../utils/WeatherConditions';
 const Weather = ({ weather, temperature }) => {
     if (weather != null) {
         return (
-            <View
+            <View 
                 style={[
-                    styles.weatherContainer,
+                    styles.weatherContainer, 
                     { backgroundColor: weatherConditions[weather].color }
                 ]}
             >
                 <View style={styles.headerContainer}>
-                    <MaterialCommunityIcons
+                    <MaterialCommunityIcons 
                         size={72}
                         name={weatherConditions[weather].icon}
                         color={'#fff'}
                     />
-        <Text style={styles.tempText}>{temperature}˚</Text>
+                    <Text style={styles.tempText}>{temperature}˚</Text>
                 </View>
                 <View style={styles.bodyContainer}>
                     <Text style={styles.title}>{weatherConditions[weather].title}</Text>
@@ -36,7 +36,6 @@ const Weather = ({ weather, temperature }) => {
             </View>
         )
     }
-
 };
 
 Weather.propTypes = {
